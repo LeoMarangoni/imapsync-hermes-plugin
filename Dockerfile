@@ -52,9 +52,9 @@ RUN cpanm Mail::IMAPClient && \
     cpanm Test::MockObject && \
     cpanm Term::ReadLine
 
-RUN https://raw.githubusercontent.com/LeoMarangoni/imapsync-hermes-plugin/master/imapsync && \
+RUN wget https://raw.githubusercontent.com/LeoMarangoni/imapsync-hermes-plugin/master/imapsync && \
     chmod +x imapsync && \
-    cp imapsync /usr/bin/ && \
+    cp imapsync /usr/bin/
 
 RUN imapsync --testslive
 
