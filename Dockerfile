@@ -55,12 +55,12 @@ RUN cpanm Mail::IMAPClient && \
 RUN wget https://raw.githubusercontent.com/imapsync/imapsync/master/imapsync && \
     chmod +x imapsync && \
     cp imapsync /usr/bin/ && \
-    rm -f .dockerenv
+    rm -f /.dockerenv
 
 RUN imapsync --testslive
 
 USER root
 
-ENTRYPOINT ['imapsync']
+CMD rm -f /.dockerenv && imapsync
 
 # End of Dockerfile
