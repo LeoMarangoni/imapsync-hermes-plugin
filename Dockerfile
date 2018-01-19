@@ -52,15 +52,14 @@ RUN cpanm Mail::IMAPClient && \
     cpanm Test::MockObject && \
     cpanm Term::ReadLine
 
-RUN wget https://raw.githubusercontent.com/imapsync/imapsync/master/imapsync && \
+RUN https://raw.githubusercontent.com/LeoMarangoni/imapsync-hermes-plugin/master/imapsync && \
     chmod +x imapsync && \
     cp imapsync /usr/bin/ && \
-    rm -f /.dockerenv
 
 RUN imapsync --testslive
 
 USER root
 
-CMD rm -f /.dockerenv && imapsync
+CMD imapsync
 
 # End of Dockerfile
