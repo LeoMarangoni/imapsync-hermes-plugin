@@ -60,7 +60,6 @@ RUN imapsync --testslive
 
 USER root
 
-ENTRYPOINT /usr/bin/imapsync
-CMD imapsync
+ENTRYPOINT ["imapsync"]
 
 # End of Dockerfile
